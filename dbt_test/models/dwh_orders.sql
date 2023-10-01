@@ -1,6 +1,6 @@
 with cleaned_orders as (
     select *
-    from {{ ref('orders') }}
+    from {{ ref('raw_orders') }}
     where order_status != 'Сanceled'
 )
 select *
