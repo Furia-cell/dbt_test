@@ -1,6 +1,6 @@
 with raw_orders as (
     select *
-    from {{ source('data', 'external/csv/my_data.csv') }}
+    from {{ ref('orders') }}
 )
 select *
 from raw_orders
