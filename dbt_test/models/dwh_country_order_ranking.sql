@@ -3,7 +3,8 @@ with country_order_data as (
         order_country,
         count(*) as order_count,
         sum(product_price) as total_order_amount
-    from cleaned_orders
+    from {{ ref('orders') }}
+    where order_status != 'Сanceled'
     group by order_country
 )
 select *
